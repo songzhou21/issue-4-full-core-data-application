@@ -1,4 +1,4 @@
-platform :ios, 6.0
+platform :ios, 13.0
 target :NestedTodoListTests do
   pod 'OCMock'
 end

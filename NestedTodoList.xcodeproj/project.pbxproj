@@ -84,6 +84,8 @@
 		831D613A17BBD626000EEBED /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		831D614117BBD9BF000EEBED /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../Item.h; sourceTree = "<group>"; };
 		831D614217BBD9BF000EEBED /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = ../Item.m; sourceTree = "<group>"; };
+		E261CC52EA17B5AEF3F1399D /* Pods-NestedTodoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NestedTodoListTests.release.xcconfig"; path = "Target Support Files/Pods-NestedTodoListTests/Pods-NestedTodoListTests.release.xcconfig"; sourceTree = "<group>"; };
+		F2B76A05DE494D9227D6EF02 /* Pods-NestedTodoListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NestedTodoListTests.debug.xcconfig"; path = "Target Support Files/Pods-NestedTodoListTests/Pods-NestedTodoListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				831D60DC17BA3C43000EEBED /* Frameworks */,
 				831D60DB17BA3C43000EEBED /* Products */,
 				0734708218D34ED8B35B408D /* Pods-NestedTodoListTests.xcconfig */,
+				E155BFA28E6EAE9BB11E16BA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +207,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E155BFA28E6EAE9BB11E16BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2B76A05DE494D9227D6EF02 /* Pods-NestedTodoListTests.debug.xcconfig */,
+				E261CC52EA17B5AEF3F1399D /* Pods-NestedTodoListTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,12 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 831D610F17BA3C43000EEBED /* Build configuration list for PBXNativeTarget "NestedTodoListTests" */;
 			buildPhases = (
+				C9B160117059083EFEA4D893 /* [CP] Check Pods Manifest.lock */,
 				F5056677B9DB46FEBC892A86 /* Check Pods Manifest.lock */,
 				831D60F517BA3C43000EEBED /* Sources */,
 				831D60F617BA3C43000EEBED /* Frameworks */,
 				831D60F717BA3C43000EEBED /* Resources */,
 				831D60F817BA3C43000EEBED /* ShellScript */,
-				90FCEE4460474DEE9C5568AC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,19 +323,27 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		90FCEE4460474DEE9C5568AC /* Copy Pods Resources */ = {
+		C9B160117059083EFEA4D893 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NestedTodoListTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-NestedTodoListTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F5056677B9DB46FEBC892A86 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -481,7 +502,7 @@
 		};
 		831D611017BA3C43000EEBED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0734708218D34ED8B35B408D /* Pods-NestedTodoListTests.xcconfig */;
+			baseConfigurationReference = F2B76A05DE494D9227D6EF02 /* Pods-NestedTodoListTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NestedTodoList.app/NestedTodoList";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -499,7 +520,7 @@
 		};
 		831D611117BA3C43000EEBED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0734708218D34ED8B35B408D /* Pods-NestedTodoListTests.xcconfig */;
+			baseConfigurationReference = E261CC52EA17B5AEF3F1399D /* Pods-NestedTodoListTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NestedTodoList.app/NestedTodoList";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
